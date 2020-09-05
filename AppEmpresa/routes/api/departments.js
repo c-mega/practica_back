@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAll, create, getById } = require('../../models/department');
+const { getAll, create, getById, update, remove } = require('../../models/department');
 
 
 //RECUPERO LOS DEPARTAMENTOS CON GET
@@ -32,5 +32,35 @@ router.post('/', async (req, res) => {
 });
 
 
+//ACTUALIZO UN DEPARTMENT CON PUT 
+
+router.put('/', async (req, res) => {
+    try {
+        const result = await update(req.body);
+        if (result['affectedRows'] === 1) {
+            res.json({ success: 'This department has been edited' });
+        } else {
+            res.status(422).json({ error: 'The changes in the table department have not been committed' });
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+// BORRO UN DEPARTMENT CON DELETE
+
+router.delete('/', async (req, res) => {
+    try {
+        const result = await remove(req.body.id);
+        if (result['affectedRows'] === 1) {
+            res.json({ success: 'The department selected has been removed from the database' });
+        } else {
+            res.json({ error: 'The department has not been removed properly. Please, review the ID department' })
+        }
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 module.exports = router;

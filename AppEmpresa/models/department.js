@@ -39,4 +39,26 @@ const getById = (pDepartmentId) => {
     });
 }
 
-module.exports = { getAll, create, getById };
+//UPDATE- ACTUALIZO los departamentos
+
+const update = ({ nombre, ciudad, id }) => {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE departamento SET nombre = ?, ciudad = ? WHERE id = ?', [nombre, ciudad, id], (err, result) => {
+            if (err) return reject(err);
+            resolve(result);
+        })
+    });
+}
+
+//REMOVE- BORRO los datos de un departamento de esa tabla
+
+const remove = (pDepartmentId) => {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE from departamento WHERE id = ?', [pDepartmentId], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+}
+
+module.exports = { getAll, create, getById, update, remove };

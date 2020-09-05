@@ -23,7 +23,7 @@ PUT http://localhost:3000/api/employees
 Content-Type: application/json
 
 {
-    "id": 11,
+    "id": 14,
     "nombre": "Prueba PARA BORRAR",
     "dni": "2762",
     "sexo": "m",
@@ -38,7 +38,7 @@ DELETE http://localhost:3000/api/employees
 Content-Type: application/json
 
 {
-    "id": 11
+    "id": 14
 }
 
 
@@ -54,4 +54,22 @@ Content-Type: application/json
 {
     "nombre": "Pruebas",
     "ciudad": "Alicante"
+}
+
+###
+PUT http://localhost:3000/api/departments
+Content-Type: application/json
+
+{
+    "id": 7,
+    "nombre": "ProbandoAEditar",
+    "ciudad": "Málaga"
+}
+
+###
+DELETE http://localhost:3000/api/departments
+Content-Type: application/json
+
+{
+    "id": 7
 }
