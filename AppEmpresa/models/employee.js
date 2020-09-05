@@ -28,7 +28,7 @@ const getById = (pEmployeeId) => {
 
 const create = ({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id }) => {
     return new Promise((resolve, reject) => {
-        db.query('insert into empleados(nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id) values (?,?,?,?,?,?,?,?)',
+        db.query('INSERT into empleados(nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id) values (?,?,?,?,?,?,?,?)',
             [nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id], (err, result) => {
                 if (err) {
                     reject(err);
@@ -39,5 +39,29 @@ const create = ({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_
 }
 
 
+//UPDATE- ACTUALIZO los datos de un empleado de la database
 
-module.exports = { getAll, getById, create };
+const update = ({ nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id, id }) => {
+    return new Promise((resolve, reject) => {
+        db.query('UPDATE empleados SET nombre = ?, dni = ?, sexo = ?, fecha_nac = ?, fecha_inc = ?, salario = ?, cargo = ?, jefe_id = ? WHERE id = ?', [nombre, dni, sexo, fecha_nac, fecha_inc, salario, cargo, jefe_id, id], (err, result) => {
+            if (err) return reject(err);
+            resolve(result);
+        })
+    });
+}
+
+
+//REMOVE- BORRO los datos de un empleado de la database
+
+const remove = (pEmployeeId) => {
+    return new Promise((resolve, reject) => {
+        db.query('DELETE from empleados WHERE id = ?', [pEmployeeId], (err, result) => {
+            if (err) reject(err);
+            resolve(result);
+        });
+    });
+}
+
+
+
+module.exports = { getAll, getById, create, update, remove };
