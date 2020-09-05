@@ -46,3 +46,12 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/api/departments
+
+###
+POST http://localhost:3000/api/departments
+Content-Type: application/json
+
+{
+    "nombre": "Pruebas",
+    "ciudad": "Alicante"
+}
