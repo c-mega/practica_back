@@ -43,3 +43,6 @@ Content-Type: application/json
 
 
 ### PETICIONES GET, POST, PUT, DELETE DE LA TABLA DEPARTAMENTOS ###
+
+###
+GET http://localhost:3000/api/departments
