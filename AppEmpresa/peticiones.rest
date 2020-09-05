@@ -1,1 +1,16 @@
 GET http://localhost:3000/api/employees
+
+###
+
+POST http://localhost:3000/api/employees
+Content-Type: application/json
+
+{
+    "nombre": "Prueba",
+    "dni": "8324392",
+    "sexo": "m",
+    "fecha_nac": "1974-04-03",
+    "salario": "1200",
+    "cargo": "contable",
+    "jefe_id": 2
+}
