@@ -23,7 +23,7 @@ PUT http://localhost:3000/api/employees
 Content-Type: application/json
 
 {
-    "id": 14,
+    "id": 15,
     "nombre": "Prueba PARA BORRAR",
     "dni": "2762",
     "sexo": "m",
@@ -38,7 +38,7 @@ DELETE http://localhost:3000/api/employees
 Content-Type: application/json
 
 {
-    "id": 14
+    "id": 15
 }
 
 

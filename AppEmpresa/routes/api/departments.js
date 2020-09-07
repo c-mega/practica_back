@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { getAll, create, getById, update, remove } = require('../../models/department');
 
 
-//RECUPERO LOS DEPARTAMENTOS CON GET
+//GET ALL DEPARTMENTS WITH GET
 
 router.get('/', async (req, res) => {
     try {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 
-//CREO NEW DEPARTMENT CON POST
+//CREATE NEW DEPARTMENT WITH POST
 
 router.post('/', async (req, res) => {
     try {
@@ -32,7 +32,7 @@ router.post('/', async (req, res) => {
 });
 
 
-//ACTUALIZO UN DEPARTMENT CON PUT 
+//UPDATE A DEPARTMENT WITH PUT 
 
 router.put('/', async (req, res) => {
     try {
@@ -48,7 +48,7 @@ router.put('/', async (req, res) => {
 });
 
 
-// BORRO UN DEPARTMENT CON DELETE
+// REMOVE A DEPARTMENT WITH DELETE
 
 router.delete('/', async (req, res) => {
     try {

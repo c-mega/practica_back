@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { getAll, getById, create, update, remove } = require('../../models/employee');
 
 
-//RECUPERO LOS EMPLOYEES CON GET
+//GET ALL EMPLOYEES WITH GET
 
 router.get('/', async (req, res) => {
     try {
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 
-//CREO NEW EMPLOYEE CON POST
+//CREATE NEW EMPLOYEE WITH POST
 
 router.post('/', async (req, res) => {
     try {
@@ -33,7 +33,7 @@ router.post('/', async (req, res) => {
 });
 
 
-// EDITO UN EMPLOYEE CON PUT
+// EDIT AN EMPLOYEE WITH PUT
 
 router.put('/', async (req, res) => {
     try {
@@ -50,7 +50,7 @@ router.put('/', async (req, res) => {
 
 
 
-// BORRO UN EMPLOYEE CON DELETE
+// DELETE AN EMPLOYEE WITH DELETE
 
 router.delete('/', async (req, res) => {
     try {
